@@ -39,7 +39,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Models\Thing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IThingsService.cs" />
+    <Compile Include="Services\ThingsService.cs" />
+    <Compile Include="ViewModels\Design\ThingsDesignableViewModel.cs" />
     <Compile Include="ViewModels\ThingsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +55,33 @@
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Localization">
       <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Cirrious.MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl">
+      <HintPath>..\packages\Flurl.1.0.1\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+MonoTouch10\Flurl.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl.Http">
+      <HintPath>..\packages\Flurl.Http.0.2.2\lib\portable-net45+sl50+win+wpa81+wp80+MonoAndroid10+MonoTouch10\Flurl.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\portable-net45+win8+wpa81\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\portable-net45+win8+wpa81\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage">
+      <HintPath>..\packages\PCLStorage.0.9.6\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch\PCLStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions">
+      <HintPath>..\packages\PCLStorage.0.9.6\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch\PCLStorage.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\portable-net45+win8\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\portable-net45+win8\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

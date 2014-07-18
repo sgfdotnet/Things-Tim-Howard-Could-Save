@@ -7,7 +7,7 @@ using Tim.App.Core.Models;
 
 namespace Tim.App.Core.Services
 {
-	interface IThingsService
+	public interface IThingsService
 	{
 		Task<IEnumerable<Thing>> GetThings();
 	}

@@ -1,0 +1,11 @@
+﻿<Application
+    x:Class="Tim.App.UI.WinRT.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tim.App.UI.WinRT"
+	RequestedTheme="Light">
+	<Application.Resources>
+		<Color x:Key="MaroonColor">#FFBF0C34</Color>
+	</Application.Resources>
+
+</Application>
