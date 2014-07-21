@@ -23,12 +23,16 @@ namespace Tim.App.Core.ViewModels
 		{
 			this.LoadThingsCommand = new MvxCommand(async () => 
 			{
-				this.Things = await service.GetThings();
+					await LoadThings();
 			});			
 		}
 
 		public ICommand LoadThingsCommand { get; private set; }
 
+		public async Task LoadThings()
+		{
+			this.Things = await service.GetThings();
+		}
 		
 		#region Things
 

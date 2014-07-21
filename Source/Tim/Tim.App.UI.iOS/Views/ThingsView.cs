@@ -1,32 +1,69 @@
-using System.Drawing;
+﻿using System.Drawing;
 using Cirrious.MvvmCross.Binding.BindingContext;
 using Cirrious.MvvmCross.Touch.Views;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
 using MonoTouch.Foundation;
+using Cirrious.MvvmCross.Binding.Touch.Views;
+using Tim.App.Core.ViewModels;
+using System.Linq;
+using Tim.App.Core.Models;
 
-namespace Tim.App.UI.iOS.Views
+namespace Tim.App.UI.iOS
 {
-	[Register("ThingsView")]
-    public class ThingsView : MvxViewController
-    {
-        public override void ViewDidLoad()
-        {
-            View = new UIView(){ BackgroundColor = UIColor.White};
-            base.ViewDidLoad();
+	public partial class ThingsView : MvxViewController
+	{
+		public ThingsViewModel ThingsViewModel { get; set; }
 
-			// ios7 layout
-            if (RespondsToSelector(new Selector("edgesForExtendedLayout")))
-               EdgesForExtendedLayout = UIRectEdge.None;
-			   
-            var label = new UILabel(new RectangleF(10, 10, 300, 40));
-            Add(label);
-            var textField = new UITextField(new RectangleF(10, 50, 300, 40));
-            Add(textField);
+		public ThingsView () : base("ThingsView", null)
+		{
+		}
 
-            var set = this.CreateBindingSet<ThingsView, Core.ViewModels.ThingsViewModel>();
-            set.Bind(label).To(vm => vm.Test);
-            set.Apply();
-        }
-    }
+		public override void DidReceiveMemoryWarning()
+		{
+			// Releases the view if it doesn't have a superview.
+			base.DidReceiveMemoryWarning();
+			
+			// Release any cached data, images, etc that aren't in use.
+		}
+
+		public override async void ViewDidLoad()
+		{
+			base.ViewDidLoad();
+
+			this.ThingsViewModel = (ThingsViewModel)this.ViewModel;
+
+			this.ThingsList.RegisterNibForCell(UINib.FromName("ThingsCollectionViewCell", NSBundle.MainBundle), ThingsCollectionViewCell.Key);
+			var thingSource = new MvxCollectionViewSource(this.ThingsList, ThingsCollectionViewCell.Key);
+			this.ThingsList.Source = thingSource;
+			//this.ThingsList.Delegate = new 
+
+			await this.ThingsViewModel.LoadThings();
+
+			// Perform any additional setup after loading the view, typically from a nib.
+			var set = this.CreateBindingSet<ThingsView, Core.ViewModels.ThingsViewModel>();
+			set.Bind(thingSource).To(vm => vm.Things);
+			set.Apply();
+		}
+	}
+
+	public class ThingsListDelegate : UICollectionViewDelegate
+	{
+		private ThingsView thingsView;
+
+		public ThingsListDelegate (ThingsView thingsView)
+		{
+			this.thingsView = thingsView;
+		}
+
+		public override void ItemSelected(UICollectionView collectionView, NSIndexPath indexPath)
+		{
+			// NOTE: Don't call the base implementation on a Model class
+			// see http://docs.xamarin.com/guides/ios/application_fundamentals/delegates,_protocols,_and_events
+
+			Thing thing = this.thingsView.ThingsViewModel.Things.ToList()[0];
+
+		}
+	}
 }
+
