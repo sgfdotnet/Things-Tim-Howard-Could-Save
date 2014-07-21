@@ -41,7 +41,7 @@ namespace Tim.API.Data
 			yield return new Thing()
 			{
 				Id = 5,
-				Title = "Some important hockey goal",
+				Title = "Some hockey goal",
 				ThumbnailImageUri = new Uri("https://thingstimhowardcouldsave.blob.core.windows.net/thumbnails/hockey.jpg"),
 				FullImageUri = new Uri("https://thingstimhowardcouldsave.blob.core.windows.net/things/hockey.jpg")
 			};
