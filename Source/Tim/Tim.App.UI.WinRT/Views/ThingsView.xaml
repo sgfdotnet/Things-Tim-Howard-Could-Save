@@ -6,7 +6,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:views="using:Cirrious.MvvmCross.WindowsStore.Views"
 	xmlns:designModels="using:Tim.App.Core.ViewModels.Design"
-    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core" x:Name="mvxStorePage"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
+	xmlns:Core="using:Microsoft.Xaml.Interactions.Core" 
+	x:Name="mvxStorePage"
     x:Class="Tim.App.UI.WinRT.Views.ThingsView"
     d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type=designModels:ThingsDesignableViewModel}"
     mc:Ignorable="d">
