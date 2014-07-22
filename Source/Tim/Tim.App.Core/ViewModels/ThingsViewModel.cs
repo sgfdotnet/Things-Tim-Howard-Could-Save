@@ -23,15 +23,21 @@ namespace Tim.App.Core.ViewModels
 		{
 			this.LoadThingsCommand = new MvxCommand(async () => 
 			{
-					await LoadThings();
-			});			
+				await LoadThings();
+			});
+			this.ShowSlidesCommand = new MvxCommand(() => 
+			{
+				this.ShowViewModel<SlideshowViewModel>();
+			});
 		}
 
 		public ICommand LoadThingsCommand { get; private set; }
+		public ICommand ShowSlidesCommand { get; private set; }
 
 		public async Task LoadThings()
 		{
 			this.Things = await service.GetThings();
+			Data.Cache.Things = this.Things;
 		}
 		
 		#region Things

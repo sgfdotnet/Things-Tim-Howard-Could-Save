@@ -1,0 +1,23 @@
+﻿<views:MvxStorePage
+    x:Class="Tim.App.UI.WinRT.Views.SlideshowView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tim.App.UI.WinRT.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:designModels="using:Tim.App.Core.ViewModels.Design"
+	xmlns:views="using:Cirrious.MvvmCross.WindowsStore.Views"
+	d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type=designModels:SlideshowDesignableViewModel}"
+    mc:Ignorable="d">
+	<Page.Resources>
+		<DataTemplate x:Key="DataTemplate1">
+			<Grid>
+				<Image Source="{Binding FullImageUri}" Stretch="None"/>
+			</Grid>
+		</DataTemplate>
+	</Page.Resources>
+
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+		<FlipView Margin="0,0,0,0" ItemTemplate="{StaticResource DataTemplate1}" ItemsSource="{Binding Things}" />
+	</Grid>
+</views:MvxStorePage>

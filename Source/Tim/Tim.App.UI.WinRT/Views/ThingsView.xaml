@@ -37,6 +37,7 @@
 		<Image Source="ms-appx:///Assets/tim.png" Width="150" Height="150" Margin="23,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
 		<TextBlock HorizontalAlignment="Left" Margin="195,68,0,0" TextWrapping="Wrap" Text="#ThingsTimHowardCouldSave" VerticalAlignment="Top" Foreground="#FF5B6770" FontWeight="SemiBold" FontSize="48"/>
 		<Image Source="ms-appx:///Assets/ussoccerlogo.png" HorizontalAlignment="Right" VerticalAlignment="Top" Width="50" Height="50" Margin="0,30,20,0" />
-		<GridView Margin="0,195,0,0" SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True" ItemTemplate="{StaticResource ThingItemTemplate}" ItemsSource="{Binding Things}"/>
+		<GridView Margin="0,195,0,50" SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True" ItemTemplate="{StaticResource ThingItemTemplate}" ItemsSource="{Binding Things}"/>
+		<Button Content="Slideshow" HorizontalAlignment="Right" Height="38" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="151" Command="{Binding ShowSlidesCommand, Mode=OneWay}"/>
 	</Grid>
 </views:MvxStorePage>
